@@ -1,5 +1,5 @@
 import { Box, makeStyles, Typography, Divider } from '@material-ui/core';
-
+import logo from '../../assets/logo.png'
 const useStyle = makeStyles(theme => ({
     component: {
         background: '#f8f9fa',
@@ -34,15 +34,15 @@ const useStyle = makeStyles(theme => ({
 
 const EmptyChat = () => {
     const classes = useStyle();
-    const url = 'https://web.whatsapp.com/img/intro-connection-light_c98cc75f2aa905314d74375a975d2cf2.jpg';
+    const url = logo;
 
     return (
         <Box className={classes.component}>
             <Box className={classes.container}>
                 <img src={url} alt="dp" className={classes.image} />
-                <Typography className={classes.title}>Keep your phone connected</Typography>
-                <Typography className={classes.subTitle}>chAt Box connects you to your phone to sync messages. To reduce data usage, connect
-                    your phone to Wi-Fi.
+                <Typography className={classes.title}>Keep your google accounted connected</Typography>
+                <Typography className={classes.subTitle}>
+                    chAt Box connects you to your friends with the help of google accounts
                 </Typography>
                 <Divider className={classes.divider} />
             </Box>
