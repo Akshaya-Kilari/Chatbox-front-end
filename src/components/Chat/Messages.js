@@ -58,11 +58,16 @@ const Messages = ({person, conversation}) => {
 
     useEffect(() => { 
         socket.current.on('getMessage', data => {
-            setIncomingMessage({
+            if(data){  
+                setIncomingMessage({
                 sender: data.senderId,
                 text: data.text,
                 createdAt: Date.now()
             })
+
+            }
+
+           
         })
     }, []);
 
@@ -74,9 +79,12 @@ const Messages = ({person, conversation}) => {
     useEffect(() => {
         const getMessageDetails = async () => {
             let response = await getMessages(conversation._id);
-            console.log(response);
-            setMessages(response);
-            console.log("my messages",messages);
+            if(response){
+                console.log(response);
+                setMessages(response);
+                console.log("my messages",messages);
+            }
+            
         }
         getMessageDetails();
     }, [conversation?._id, person._id, newMessageFlag]);
